@@ -1,49 +1,80 @@
-#modalOverlay {
-	width:100%;
-	height:100%;
-	z-index:2; /* places the modal overlay between the main page and the modal dialog*/
-	background-color:#000;
-	opacity:0.5;
-	position:fixed;
-	top:0;
-	left:0;
-	display:none;
-	margin:0;
-	padding:0;
+.modal-overlay {
+  background:rgba(0,0,0,.8) !important;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  transition: opacity .2s;
+  z-index: 2;
+  display: none;
 }
 
-#modal {
-	width:50%;
-	margin-left:auto;
-	margin-right:auto;
-	padding: 5px;
-	border: thin #000 solid;
-	background-color:#fff;
-	z-index:3; /* places the modal dialog on top of everything else */
-	position:fixed;
-	top:25%;
-	left:25%;
-	display:none;
+/*
+  Modal Content Area
+*/
+.modal-holder {
+  box-sizing: border-box;
+  background: #efefef;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  overflow: auto !important;
+  padding: 1.5em !important;
+  position: fixed;
+  transition: transform .3s;
+  max-height: 80%;
+  top: 10%;
+  left: 15%;
+  z-index: 3;
 }
-#modal h1 {
-	text-align:center;
+.modal-holder[aria-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+}
+.modal-holder[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
 }
 
-.modalCloseButton {
-	float:right;
-	position:absolute;
-	top:10px;
-	left:92%;
-	height:25px;
-}
-.modalCloseButton img {
-	border:0;
+/*
+  General Modal Content
+*/
+.modal-title {
+  margin-top: 0;
+  padding-right: 1.25em;
 }
 
-.screen-reader-offscreen {
-	position:absolute;
-	left:-999px;
-	width:1px;
-	height:1px;
-	top:auto;
+.modal-desc {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*
+  Close Modal Button
+*/
+.btn-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: arial;
+  font-size: 2em;
+  font-weight: 800;
+  line-height: 1;
+  padding: 0;
+  position: absolute;
+  right: .25em;
+  top: .25em;
+  z-index: 2;
+}
+.btn-close:focus {
+  color: $wai_red;
 }
